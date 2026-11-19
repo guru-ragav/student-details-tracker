@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance and Academic Performance Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="applicationShell" class="application-shell">
+        <section id="loginSection" class="login-page-container">
+            <div class="login-card cream-card-surface" style="max-width:620px;">
+                <div class="login-header">
+                    <div class="brand-emblem" aria-hidden="true">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                        </svg>
+                    </div>
+                    <h1 class="application-title">Student Attendance &amp; Academic Performance Tracker</h1>
+                    <p class="secondary-subtitle">Institutional portal for attendance tracking, internal assessments, staff directory, and analytical reporting</p>
+                </div>
+
+                <form id="loginForm" class="login-form" novalidate>
+                    <div class="form-field-group">
+                        <label class="field-label" for="loginRoleSelector">Select Portal Role</label>
+                        <div id="loginRoleSelector" class="role-selector-grid role-selector-expanded" role="radiogroup" aria-label="User Role">
+                            <button type="button" class="role-option-button active-role-option" data-role="ADMIN">Administrator</button>
+                            <button type="button" class="role-option-button" data-role="DEAN">Dean</button>
+                            <button type="button" class="role-option-button" data-role="HOD">HOD</button>
+                            <button type="button" class="role-option-button" data-role="ACADEMIC_COORDINATOR">Academic Coord.</button>
+                            <button type="button" class="role-option-button" data-role="CLASS_ADVISOR">Class Advisor</button>
+                            <button type="button" class="role-option-button" data-role="FACULTY">Subject Faculty</button>
+                            <button type="button" class="role-option-button" data-role="EXAM_CELL_COORDINATOR">Exam Cell Coord.</button>
+                            <button type="button" class="role-option-button" data-role="STUDENT">Student</button>
+                        </div>
+                        <input type="hidden" id="selectedRoleInput" value="ADMIN">
+                    </div>
+
+                    <div class="form-field-group">
+                        <label class="field-label" for="loginEmailInput">Institutional Email</label>
+                        <input type="email" id="loginEmailInput" class="cream-text-input" placeholder="name@college.edu" required>
+                    </div>
+
+                    <div class="form-field-group">
+                        <label class="field-label" for="loginPasswordInput">Password</label>
+                        <input type="password" id="loginPasswordInput" class="cream-text-input" placeholder="Enter your password" required>
+                    </div>
+
+                    <div id="loginErrorBanner" class="inline-feedback-banner negative-feedback-banner hidden-element" role="alert"></div>
+
+                    <button type="submit" id="loginSubmitButton" class="primary-action-button full-width-button">Sign In to Portal</button>
+                </form>
+
+                <div class="demo-credentials-panel translucent-panel-surface">
+                    <div class="demo-credentials-heading">Demo Credentials (Click to Autofill)</div>
+                    <div class="demo-credentials-grid demo-credentials-two-col">
+                        <button type="button" class="secondary-action-button demo-fill-button" data-demo-role="ADMIN" data-demo-email="admin@college.edu" data-demo-password="admin123">
+                            Admin: admin@college.edu
+                        </button>
+                        <button type="button" class="secondary-action-button demo-fill-button" data-demo-role="DEAN" data-demo-email="meenakshi.sundaram@college.edu" data-demo-password="staff123">
+                            Dean: meenakshi.sundaram@college.edu
+                        </button>
+                        <button type="button" class="secondary-action-button demo-fill-button" data-demo-role="HOD" data-demo-email="gopinath.natarajan@college.edu" data-demo-password="staff123">
+                            HOD (CSE): gopinath.natarajan@college.edu
+                        </button>
+                        <button type="button" class="secondary-action-button demo-fill-button" data-demo-role="ACADEMIC_COORDINATOR" data-demo-email="thenmozhi.murugan@college.edu" data-demo-password="staff123">
+                            Acad. Coord: thenmozhi.murugan@college.edu
+                        </button>
+                        <button type="button" class="secondary-action-button demo-fill-button" data-demo-role="CLASS_ADVISOR" data-demo-email="kalaiselvi.pandian@college.edu" data-demo-password="staff123">
+                            Class Advisor: kalaiselvi.pandian@college.edu
+                        </button>
+                        <button type="button" class="secondary-action-button demo-fill-button" data-demo-role="FACULTY" data-demo-email="muthukumar.palani@college.edu" data-demo-password="faculty123">
+                            Subject Faculty: muthukumar.palani@college.edu
+                        </button>
+                        <button type="button" class="secondary-action-button demo-fill-button" data-demo-role="EXAM_CELL_COORDINATOR" data-demo-email="arumugam.krishnan@college.edu" data-demo-password="staff123">
+                            Exam Cell: arumugam.krishnan@college.edu
+                        </button>
+                        <button type="button" class="secondary-action-button demo-fill-button" data-demo-role="STUDENT" data-demo-email="arun.subramanian@college.edu" data-demo-password="student123">
+                            Student: arun.subramanian@college.edu
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="dashboardWorkspace" class="dashboard-workspace hidden-element">
+            <header class="top-navigation-bar translucent-panel-surface no-print">
+                <div class="navigation-brand-group">
+                    <span class="navigation-title">Academic Performance Tracker</span>
+                    <span id="activeRoleBadge" class="status-badge-neutral">Role</span>
+                </div>
+                <div class="navigation-user-group">
+                    <span id="signedInUserDisplay" class="secondary-subtitle"></span>
+                    <button type="button" id="logoutButton" class="secondary-action-button">Sign Out</button>
+                </div>
+            </header>
+
+            <div class="workspace-body-layout">
+                <aside class="navigation-sidebar translucent-panel-surface no-print">
+                    <div class="sidebar-profile-summary">
+                        <div id="sidebarUserName" class="sidebar-user-name"></div>
+                        <div id="sidebarDashboardSummary" class="sidebar-user-summary"></div>
+                    </div>
+                    <nav id="sidebarNavigationMenu" class="sidebar-navigation-menu" aria-label="Dashboard Sections"></nav>
+                </aside>
+
+                <main id="mainDashboardContent" class="main-dashboard-content">
+                    <div id="globalFeedbackBanner" class="inline-feedback-banner hidden-element no-print" role="status"></div>
+                    <div id="dynamicSectionContainer" class="dynamic-section-container"></div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

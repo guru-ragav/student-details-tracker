@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+:root {
+  --color-sage-green: #87A96B;
+  --color-warm-beige: #E8DCC4;
+  --color-amber-glow: #D5851F;
+  --color-amber-glow-hover: #E39A33;
+  --color-cream-surface: rgba(251, 247, 236, 0.95);
+  --color-cream-button: #F6F0E4;
+  --color-translucent-panel: rgba(255, 255, 255, 0.28);
+  --color-primary-green-text: #1F2A14;
+  --color-deep-green-text: #3F5A33;
+  --color-forest-green: #3F6B2E;
+  --color-forest-green-background: #DEE8D2;
+  --color-beige-red: #8C3F34;
+  --color-beige-red-background: #EBCFC4;
+  --color-warm-sand: #E3D3B0;
+  --color-warm-sand-tint: rgba(227, 211, 176, 0.35);
+  --color-green-border: rgba(63, 90, 51, 0.25);
+  --gradient-page-background: linear-gradient(180deg, #87A96B 0%, #87A96B 25%, #B5C093 50%, #E3D8BC 78%, #EFE6D0 100%);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  color: var(--color-primary-green-text);
+  background: var(--gradient-page-background);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.cream-card-surface {
+  background-color: var(--color-cream-surface);
+  border: 0.5px solid var(--color-green-border);
+  border-radius: 12px;
+}
+
+.translucent-panel-surface {
+  background-color: var(--color-translucent-panel);
+  border: 0.5px solid var(--color-green-border);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.primary-action-button {
+  background-color: var(--color-amber-glow);
+  color: var(--color-primary-green-text);
+  border: 1px solid rgba(31, 42, 20, 0.2);
+  border-radius: 9999px;
+}
+
+.primary-action-button:hover {
+  background-color: var(--color-amber-glow-hover);
+}
+
+.secondary-action-button {
+  background-color: var(--color-cream-button);
+  color: var(--color-deep-green-text);
+  border: 0.5px solid var(--color-green-border);
+  border-radius: 9999px;
+}
+
+.secondary-action-button:hover {
+  background-color: var(--color-warm-beige);
+}
+
+.negative-action-button {
+  background-color: var(--color-beige-red-background);
+  color: var(--color-beige-red);
+  border: 0.5px solid rgba(140, 63, 52, 0.35);
+  border-radius: 9999px;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #EFE6D0 !important;
+  }
+}

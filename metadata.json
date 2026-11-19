@@ -1,0 +1,6 @@
+{
+  "name": "Student Attendance and Academic Performance Tracker",
+  "description": "Java Spring Boot OOP project for maintaining student attendance, internal assessment marks, and department, class, and individual performance reports.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
